@@ -1,0 +1,9 @@
+.assets-list{
+    display: flex;
+    flex-direction: column;
+}
+
+.asset-item{
+    display: flex;
+    justify-content: space-around;
+}
