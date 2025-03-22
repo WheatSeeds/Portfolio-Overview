@@ -1,0 +1,14 @@
+.button-ui{
+  width: 140px;
+  height: 40px;
+  background-color: #141416;
+  border-radius: 10px;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.button-ui:hover{
+  background-color: #1d1d20;
+}

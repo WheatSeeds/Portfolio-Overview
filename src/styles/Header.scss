@@ -1,0 +1,18 @@
+.header{
+  height: 90px;
+  border-bottom: 1px solid #141416;
+  display: flex;
+  justify-content: center;
+
+  .header-content{
+    width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-content__title {
+      font: 24px "Poppins", sans-serif;
+      color: #141416;
+    }
+  }
+}
