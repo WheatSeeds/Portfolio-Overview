@@ -7,3 +7,13 @@
     display: flex;
     justify-content: space-around;
 }
+
+#root{
+    position: relative;
+    height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}

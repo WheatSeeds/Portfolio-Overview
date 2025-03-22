@@ -1,9 +1,14 @@
 import Button from "./Button.tsx";
 
-const Header = () => {
+type HeaderProps = {
+    setModalVisible: (visible: boolean) => void;
+    modalVisible: boolean;
+}
+
+const Header = ({setModalVisible, modalVisible}: HeaderProps) => {
     return (
         <header>
-            <Button>Add</Button>
+            <Button onClick={() => setModalVisible(!modalVisible)}>Add</Button>
         </header>
     );
 };
