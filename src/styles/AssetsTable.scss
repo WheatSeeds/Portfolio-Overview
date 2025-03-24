@@ -1,20 +1,36 @@
-.assets-table{
+.assets-table {
   display: flex;
   flex-direction: column;
   width: 1120px;
+  font: 14px "Poppins", sans-serif;
 
-  .assets-table__top, .assets-table-list__item{
+  &__top,
+  &__item {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    font: 14px "Poppins", sans-serif;
+    grid-template-columns: repeat(6, 1fr);
     height: max-content;
     padding: 10px 0;
   }
 
-  .assets-table__divider{
+  &__divider {
     width: 100%;
     height: 1px;
     background-color: #9b9b9e;
   }
-}
 
+  &__change-percent {
+    &__down {
+      color: #ea0f0f;
+    }
+    &__up {
+      color: #1ebc1e;
+    }
+  }
+
+  &__message{
+    width: 100%;
+    padding: 35vh 0;
+    display: flex;
+    justify-content: center;
+  }
+}

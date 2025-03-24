@@ -1,5 +1,5 @@
 import { AppDispatch } from "../store/store.ts";
-import { updateLastPrice } from "../store/portfolioSlice.ts";
+import { updateActualInfo } from "../store/portfolioSlice.ts";
 
 export function getActualAssetInfo(symbol: string, dispatch: AppDispatch) {
   const wsUrl = `wss://stream.binance.com:9443/stream?streams=${symbol.toLowerCase()}@ticker`;
@@ -7,8 +7,13 @@ export function getActualAssetInfo(symbol: string, dispatch: AppDispatch) {
 
   socket.onmessage = (event) => {
     const response = JSON.parse(event.data);
-    dispatch(updateLastPrice({ symbol: symbol, lastPrice: response.data.c }));
+    dispatch(
+      updateActualInfo({
+        symbol: response.data.s,
+        lastPrice: response.data.c,
+        priceChangePercent: response.data.P,
+      }),
+    );
   };
-
   return socket;
 }

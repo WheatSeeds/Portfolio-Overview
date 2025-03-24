@@ -9,9 +9,9 @@ const Header = ({ setModalVisible, modalVisible }: HeaderProps) => {
   return (
     <header className="header">
       <div className="header-content">
-        <span className="header-content__title">Portfolio Overview</span>
+        <span className="header__title">Portfolio Overview</span>
         <Button
-          className="header-content__button"
+          className="header__button"
           onClick={() => setModalVisible(!modalVisible)}
         >
           Add

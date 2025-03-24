@@ -4,4 +4,5 @@ export type IAsset = {
   lastPrice: string;
   firstId: number;
   quantity: number;
+  share: number;
 };

@@ -1,5 +1,6 @@
 import { IAsset } from "../../types/types.ts";
 import { useMemo } from "react";
+import List from "../List.tsx";
 
 type AssetsListProps = {
   assets: IAsset[];
@@ -17,18 +18,23 @@ const AssetsList = ({
   }, [assets, searchQuery]);
 
   return (
-    <div className="modal__assets-list">
-      {filteredAssets.map((asset: IAsset) => (
+    <List
+      className={"assets-list"}
+      items={filteredAssets}
+      getKey={(asset) => asset.symbol}
+      renderItem={(asset: IAsset) => (
         <div
-          className="modal__assets-list__item"
-          onClick={() => setCurrentAsset(asset)}
+          className="assets-list__item"
+          onClick={() => {
+            setCurrentAsset(asset);
+          }}
         >
           <span>{asset.symbol}</span>
           <span>${asset.lastPrice}</span>
           <span>{asset.priceChangePercent}%</span>
         </div>
-      ))}
-    </div>
+      )}
+    />
   );
 };
 

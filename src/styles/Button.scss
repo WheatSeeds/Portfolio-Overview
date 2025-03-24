@@ -8,8 +8,7 @@
   cursor: pointer;
   transition-duration: 0.4s;
   font: 14px "Poppins", sans-serif;
-}
-
-.button-ui:hover{
-  background-color: #1d1d20;
+  &:hover{
+    background-color: #1d1d20;
+  }
 }

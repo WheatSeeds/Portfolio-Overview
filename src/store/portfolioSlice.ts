@@ -6,11 +6,9 @@ const portfolioSlice = createSlice({
   initialState: [] as IAsset[],
   reducers: {
     addToPortfolio: (state, action: PayloadAction<IAsset>) => {
-      if (state.find((item) => item.firstId === action.payload.firstId)) {
-        const asset = state.find(
-          (item) => item.firstId === action.payload.firstId,
-        );
-        asset!.quantity += action.payload.quantity;
+      const asset = state.find((item) => item.symbol === action.payload.symbol);
+      if (asset) {
+        asset.quantity += action.payload.quantity;
       } else {
         state.push(action.payload);
       }
@@ -18,18 +16,32 @@ const portfolioSlice = createSlice({
     deleteFromPortfolio: (state, action: PayloadAction<IAsset>) => {
       return state.filter((item) => item.firstId !== action.payload.firstId);
     },
-    updateLastPrice: (
+    updateActualInfo: (
       state,
-      action: PayloadAction<{ symbol: string; lastPrice: string }>,
+      action: PayloadAction<{
+        symbol: string;
+        lastPrice: string;
+        priceChangePercent: string;
+      }>,
     ) => {
       const asset = state.find((item) => item.symbol === action.payload.symbol);
-      if (asset!.lastPrice != action.payload.lastPrice) {
-        asset!.lastPrice = action.payload.lastPrice;
+      if (asset) {
+        asset.lastPrice = action.payload.lastPrice;
+        asset.priceChangePercent = action.payload.priceChangePercent;
       }
+    },
+    updateShare: (state, action: PayloadAction<number>) => {
+      state.forEach((item) => {
+        item.share = (item.quantity / action.payload) * 100;
+      });
     },
   },
 });
 
-export const { addToPortfolio, deleteFromPortfolio, updateLastPrice } =
-  portfolioSlice.actions;
+export const {
+  addToPortfolio,
+  deleteFromPortfolio,
+  updateActualInfo,
+  updateShare,
+} = portfolioSlice.actions;
 export default portfolioSlice.reducer;

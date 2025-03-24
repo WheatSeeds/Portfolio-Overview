@@ -1,7 +1,7 @@
 .modal {
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
@@ -10,10 +10,10 @@
   justify-content: center;
   font: 14px "Poppins", sans-serif;
 
-  .modal__content{
+  &__content {
     width: 500px;
     height: max-content;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -22,51 +22,45 @@
     gap: 20px;
     padding: 40px;
 
-    .modal__content__menu{
+    &__menu {
       display: grid;
       align-items: center;
       grid-template-columns: repeat(4, 1fr);
       column-gap: 10px;
     }
-
   }
-
-  .modal__assets-list{
+  .assets-list {
     display: flex;
     flex-direction: column;
     height: 300px;
     overflow-y: scroll;
-    width: 450px;
-  }
-
-  .modal__assets-list__item{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 5px 0;
-    user-select: none;
-    cursor: pointer;
-  }
-
-  .modal__input-search{
     width: 100%;
-  }
+    border: 1px solid #141416;
+    border-radius: 10px;
 
-  .modal__input-quantity{
+    &__item {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      padding: 5px 0;
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+  &__input-search,
+  &__input-quantity{
     width: 100%;
-  }
-
-  .modal__input-search, .modal__input-quantity{
     height: 40px;
     border-radius: 10px;
     border: 1px solid #141416;
+
   }
 }
 
-.modal_visible{
+.modal_visible {
   opacity: 1;
 }
 
-.modal_hidden{
+.modal_hidden {
   opacity: 0;
-  z-index: -1;
+  display: none;
 }

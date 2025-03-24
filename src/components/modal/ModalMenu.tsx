@@ -1,7 +1,7 @@
 import Button from "../Button.tsx";
-import { addToPortfolio } from "../../store/portfolioSlice.ts";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../store/store.ts";
+import { addToPortfolio, updateShare } from "../../store/portfolioSlice.ts";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../store/store.ts";
 import { IAsset } from "../../types/types.ts";
 
 type ModalMenuProps = {
@@ -18,7 +18,9 @@ const ModalMenu = ({
   resetStates,
 }: ModalMenuProps) => {
   const dispatch = useDispatch<AppDispatch>();
-
+  const totalQuantity = useSelector((state: RootState) =>
+    state.portfolio.reduce((sum, item) => sum + item.quantity, 0),
+  );
   return (
     <div className="modal__content__menu">
       <span>{currentAsset.symbol}</span>
@@ -40,9 +42,11 @@ const ModalMenu = ({
             addToPortfolio({
               ...currentAsset!,
               quantity: assetQuantity,
+              share: 0,
             }),
           );
           resetStates();
+          dispatch(updateShare(totalQuantity + assetQuantity));
         }}
       >
         Add
