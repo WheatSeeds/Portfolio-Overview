@@ -10,6 +10,12 @@
     grid-template-columns: repeat(6, 1fr);
     height: max-content;
     padding: 10px 0;
+    transition-duration: 0.3s;
+  }
+
+  &__item:hover{
+    cursor: pointer;
+    background-color: #e5e5ea;
   }
 
   &__divider {
@@ -19,10 +25,10 @@
   }
 
   &__change-percent {
-    &__down {
+    &_down {
       color: #ea0f0f;
     }
-    &__up {
+    &_up {
       color: #1ebc1e;
     }
   }

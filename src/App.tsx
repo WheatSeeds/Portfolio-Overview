@@ -39,7 +39,7 @@ const App = () => {
       <Header setModalVisible={setModalVisible} modalVisible={modalVisible} />
 
       <main className="main">
-        <AssetsTable className={"main__section"} />
+        <AssetsTable />
 
         <Modal modalVisible={modalVisible} resetStates={resetStates}>
           <input

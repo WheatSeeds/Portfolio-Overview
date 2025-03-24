@@ -44,6 +44,10 @@
       padding: 5px 0;
       user-select: none;
       cursor: pointer;
+      transition-duration: 0.3s;
+      &:hover{
+        background-color: #e5e5ea;
+      }
     }
   }
   &__input-search,

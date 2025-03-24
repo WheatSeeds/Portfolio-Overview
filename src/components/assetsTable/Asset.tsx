@@ -42,11 +42,11 @@ const Asset = ({ asset }: AssetProps) => {
         ${(asset.quantity * parseFloat(asset.lastPrice)).toFixed(5)}
       </span>
       {parseFloat(asset.priceChangePercent) >= 0 ? (
-        <span className="assets-table__change-percent assets-table__change-percent__up">
+        <span className="assets-table__change-percent assets-table__change-percent_up">
           +{asset.priceChangePercent}%
         </span>
       ) : (
-        <span className="assets-table__change-percent assets-table__change-percent__down">
+        <span className="assets-table__change-percent assets-table__change-percent_down">
           {asset.priceChangePercent}%
         </span>
       )}
