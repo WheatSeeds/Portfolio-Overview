@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAsset } from "../types/types.tsx";
 
-const cartSlice = createSlice({
-  name: "cart",
+const portfolioSlice = createSlice({
+  name: "portfolio",
   initialState: [] as IAsset[],
   reducers: {
     addToPortfolio: (state, action: PayloadAction<IAsset>) => {
@@ -18,8 +18,18 @@ const cartSlice = createSlice({
     deleteFromPortfolio: (state, action: PayloadAction<IAsset>) => {
       return state.filter((item) => item.firstId !== action.payload.firstId);
     },
+    updateLastPrice: (
+      state,
+      action: PayloadAction<{ symbol: string; lastPrice: string }>,
+    ) => {
+      const asset = state.find((item) => item.symbol === action.payload.symbol);
+      if (asset!.lastPrice != action.payload.lastPrice) {
+        asset!.lastPrice = action.payload.lastPrice;
+      }
+    },
   },
 });
 
-export const { addToPortfolio, deleteFromPortfolio } = cartSlice.actions;
-export default cartSlice.reducer;
+export const { addToPortfolio, deleteFromPortfolio, updateLastPrice } =
+  portfolioSlice.actions;
+export default portfolioSlice.reducer;

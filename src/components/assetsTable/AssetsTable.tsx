@@ -12,6 +12,7 @@ const AssetsTable = ({ className }: AssetsTableProps) => {
   const portfolio: IAsset[] = useSelector(
     (state: RootState) => state.portfolio,
   );
+
   return (
     <section className={`${className} assets-table`}>
       {portfolio.length > 0 ? (

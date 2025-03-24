@@ -7,6 +7,7 @@ import "./styles.scss";
 import AssetsTable from "./components/assetsTable/AssetsTable.tsx";
 import ModalMenu from "./components/modal/ModalMenu.tsx";
 import AssetsList from "./components/modal/AssetsList.tsx";
+import "./WebSocket/socket.ts";
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
